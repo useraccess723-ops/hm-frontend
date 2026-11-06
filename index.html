@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>StayFlow – Hotel Admin Dashboard</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate icon" href="/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Public+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Instant theme restoration before paint to prevent theme flash on refresh -->
+    <script>
+      (function() {
+        try {
+          var activeUser = sessionStorage.getItem('stayflow_user_email') || localStorage.getItem('stayflow_last_user_email');
+          var userKey = activeUser ? 'stayflow_theme_' + activeUser.toLowerCase() : null;
+          var saved = (userKey && localStorage.getItem(userKey)) || localStorage.getItem('stayflow_theme_preference');
+          if (saved === 'light' || saved === 'white') {
+            document.documentElement.dataset.theme = 'light';
+          } else if (saved === 'dark' || saved === 'black') {
+            document.documentElement.dataset.theme = 'dark';
+          }
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
